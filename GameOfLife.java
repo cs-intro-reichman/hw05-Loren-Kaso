@@ -5,16 +5,15 @@
  *  The file format is described in the homework document.
  */
 
-public class GameOfLife {
+ public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = "line.dat";
+		// String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		 test2(fileName);
+		test1(("line.dat"));
 		//  test3("line.dat", 3);
-
-		//// play(fileName);
+		// play("line.dat");
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -63,10 +62,10 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		for (int i = 1; (i < rows && !in.isEmpty()); i++) {
-			String ch = in.readLine();
-			for (int j = 0; j <= ch.length(); j++) {
-				if(ch.charAt(j) == 'x'){
+		for (int i = 1; i < rows ; i++) {
+			String line = in.readLine();
+			for (int j = 0; j < line.length(); j++) {
+				if(line.charAt(j) == 'x'){
 					board[i][j + 1]++;	
 				}
 			}
@@ -103,7 +102,7 @@ public class GameOfLife {
 		int liveNeighbors = count(board, i, j);
 		if(isLive && liveNeighbors < 2 || 3 < liveNeighbors){
 			return 0;
-		}else if (isLive && (liveNeighbors==2 || liveNeighbors == 3)) {
+		}else if (isLive && (liveNeighbors ==2 || liveNeighbors == 3)) {
 			return 1;
 		}else if (!isLive && liveNeighbors > 3) {
 			return 1;
