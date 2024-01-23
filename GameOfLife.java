@@ -8,10 +8,10 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+		String fileName = "line.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//  test2("line.dat");
+		 test2(fileName);
 		//  test3("line.dat", 3);
 
 		//// play(fileName);
