@@ -100,11 +100,11 @@
 	public static int cellValue(int[][] board, int i, int j) {
 		boolean isLive = (board[i][j] == 1);
 		int liveNeighbors = count(board, i, j);
-		if(isLive && liveNeighbors < 2 || 3 < liveNeighbors){
+		if(isLive && (liveNeighbors < 2 || 3 < liveNeighbors)){
 			return 0;
 		}else if (isLive && (liveNeighbors ==2 || liveNeighbors == 3)) {
 			return 1;
-		}else if (!isLive && liveNeighbors > 3) {
+		}else if (!isLive && liveNeighbors == 3) {
 			return 1;
 		}
 
@@ -139,8 +139,8 @@
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
 	public static void print(int[][] arr) {
-		for (int i = 0; i < arr.length - 1; i++) {
-			for (int j = 0; j < arr[0].length - 1; j++) {
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 1; j < arr[0].length - 1; j++) {
 				System.out.printf("%3s",arr[i][j]);
 			}
 			System.out.println();
